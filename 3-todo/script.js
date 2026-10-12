@@ -11,9 +11,16 @@ let currentFilter = "all";
 let nextId = 1;
 
 function addTask() {
-  const text = input.value;
+  const text = input.value.trim();
   errorEl.hidden = true;
-  tasks.push({ id: nextId++, text: text, done: false });
+
+  if (!text) {
+    errorEl.hidden = false;
+    errorEl.textContent = "Введите текст задачи";
+    return;
+  }
+
+  tasks.push({ id: nextId++, text, done: false });
   input.value = "";
   render();
 }
