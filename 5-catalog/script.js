@@ -43,8 +43,7 @@ function getFiltered() {
 
 function render() {
   const items = getFiltered();
-
-  grid.replaceChildren();
+  grid.innerHTML = "";
 
   items.forEach((p) => {
     const card = document.createElement("div");
@@ -52,7 +51,8 @@ function render() {
     card.innerHTML = `<h3>${p.name}</h3><p class="cat">${p.category}</p><p class="price">$${p.price}</p>`;
     grid.appendChild(card);
   });
-  countEl.textContent = products.length;
+
+  countEl.textContent = items.length;
 }
 
 searchInput.addEventListener("input", render);
