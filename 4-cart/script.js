@@ -78,7 +78,7 @@ function removeItem(id) {
 }
 
 function applyPromo() {
-  const code = promoInput.value.trim().toUpperCase();
+  const code = promoInput.value.trim();
 
   if (code === "SALE10") {
     discount = 0.1;
